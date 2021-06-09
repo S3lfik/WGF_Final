@@ -2,6 +2,7 @@
 
 
 #include "Actors/PickupBase.h"
+#include <Components/StaticMeshComponent.h>
 
 // Sets default values
 APickupBase::APickupBase()
@@ -10,8 +11,6 @@ APickupBase::APickupBase()
 	PrimaryActorTick.bCanEverTick = true;
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	RootComponent = MeshComp;
-
-	MaterialInstance = MeshComp->CreateAndSetMaterialInstanceDynamicFromMaterial(0, MeshComp->GetMaterial(0));
 }
 
 // Called when the game starts or when spawned
@@ -20,7 +19,8 @@ void APickupBase::BeginPlay()
 	Super::BeginPlay();
 
 	DetonationTimeCurr = DetonationTimeMax;
-	
+	MeshMatInstance = MeshComp->CreateAndSetMaterialInstanceDynamicFromMaterial(0, MeshComp->GetMaterial(0));
+	MeshMatInstance->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
 }
 
 void APickupBase::UpdateDetonationTime(float DeltaTime)

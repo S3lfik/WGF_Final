@@ -22,7 +22,8 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = "Components")
 	UStaticMeshComponent* MeshComp;
 
-	UMaterialInstanceDynamic* MaterialInstance;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UMaterialInstanceDynamic* MeshMatInstance;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = "Logic")
 	float DetonationTimeMax = 5.f;
