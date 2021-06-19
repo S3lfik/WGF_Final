@@ -20,7 +20,7 @@ void APickupBase::BeginPlay()
 
 	DetonationTimeCurr = DetonationTimeMax;
 	MeshMatInstance = MeshComp->CreateAndSetMaterialInstanceDynamicFromMaterial(0, MeshComp->GetMaterial(0));
-	MeshMatInstance->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
+	//MeshMatInstance->SetVectorParameterValue(FName("Color"), FLinearColor::Red);
 }
 
 void APickupBase::UpdateDetonationTime(float DeltaTime)
