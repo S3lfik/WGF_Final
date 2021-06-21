@@ -2,6 +2,7 @@
 
 
 #include "Actors/DistributorBase.h"
+#include "Actors/PickupBase.h"
 
 // Sets default values
 ADistributorBase::ADistributorBase()
@@ -22,6 +23,5 @@ void ADistributorBase::BeginPlay()
 void ADistributorBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 

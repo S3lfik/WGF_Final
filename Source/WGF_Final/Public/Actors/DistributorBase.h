@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "DistributorBase.generated.h"
 
+class APickupBase;
+
 UCLASS()
 class WGF_FINAL_API ADistributorBase : public AActor
 {
@@ -15,9 +17,15 @@ public:
 	// Sets default values for this actor's properties
 	ADistributorBase();
 
+	UPROPERTY(BlueprintReadWrite)
+	bool bIsOccupied;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Distributor", meta = (DisplayName = "Spawn Pickup", ReturnDisplayName = "Spawned Pickup"))
+	APickupBase* SpawnPickup(float DeltaTime);
 
 public:	
 	// Called every frame
