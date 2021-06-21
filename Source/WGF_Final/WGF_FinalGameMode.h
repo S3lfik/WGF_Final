@@ -4,7 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Public/Actors/DistributorBase.h"
 #include "WGF_FinalGameMode.generated.h"
+
 
 UCLASS(minimalapi)
 class AWGF_FinalGameMode : public AGameModeBase
@@ -13,6 +15,13 @@ class AWGF_FinalGameMode : public AGameModeBase
 
 public:
 	AWGF_FinalGameMode();
+
+protected:
+	UFUNCTION(BlueprintCallable)
+	ADistributorBase* GetRandomFreeDistributor(UPARAM(ref) TArray<ADistributorBase*>& InDistributors) const;
+
+	UFUNCTION(BlueprintCallable)
+	ADistributorBase* GetRandomFreeDistributor(UPARAM(ref) ADistributorBase* InDistributor) const;
 };
 
 
