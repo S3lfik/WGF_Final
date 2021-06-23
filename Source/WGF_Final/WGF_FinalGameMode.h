@@ -19,9 +19,6 @@ public:
 protected:
 	UFUNCTION(BlueprintCallable)
 	ADistributorBase* GetRandomFreeDistributor(UPARAM(ref) TArray<ADistributorBase*>& InDistributors) const;
-
-	UFUNCTION(BlueprintCallable)
-	ADistributorBase* GetRandomFreeDistributor(UPARAM(ref) ADistributorBase* InDistributor) const;
 };
 
 
